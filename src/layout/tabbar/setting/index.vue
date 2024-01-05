@@ -62,10 +62,10 @@ const fullScreen = () => {
 // 退出登录
 const router = useRouter()
 const route = useRoute()
-const logout = () => {
-  //第一件事：需要项服务器发请求【退出登录接口】（我们这里没有）
+const logout = async () => {
+  //第一件事：需要项服务器发请求【退出登录接口】
   //第二件事：仓库当中和关于用户的相关的数据清空
-  userStore.userLogoutAction()
+  await userStore.userLogoutAction()
   //第三件事：跳转到登陆页面
   router.push({ path: '/login', query: { redirect: route.path } })
 }

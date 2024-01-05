@@ -54,7 +54,7 @@ import { getTime } from '@/utils/time'
 // 登录效果
 let loadType = ref(false)
 //收集账号与密码数据
-let loginForm = reactive({ username: 'admin', password: '111111' })
+let loginForm = reactive({ username: 'admin', password: 'atguigu123' })
 
 //自定义校验规则函数
 const validatorUserName = (_rule: any, value: any, callback: any) => {

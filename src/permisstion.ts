@@ -1,6 +1,8 @@
 //路由鉴权：鉴权：项目当中路由能不能被访问的权限
 import router from '@/router'
 import setting from './setting'
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+//@ts-expect-error
 import nprogress from 'nprogress'
 //引入进度条样式
 import 'nprogress/nprogress.css'
@@ -42,7 +44,7 @@ router.beforeEach(async (to: any, from: any, next: any) => {
         } catch (error) {
           //token过期|用户手动处理token
           //退出登陆->用户相关的数据清空
-          userStore.userLogoutAction()
+          await userStore.userLogoutAction()
           next({ path: '/login', query: { redirect: to.path } })
         }
       }
@@ -58,6 +60,7 @@ router.beforeEach(async (to: any, from: any, next: any) => {
 })
 
 //全局后置守卫
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 router.afterEach((to: any, from: any) => {
   // to and from are both route objects.
   nprogress.done()
