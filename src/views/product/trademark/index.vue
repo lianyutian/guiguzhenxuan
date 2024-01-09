@@ -318,6 +318,14 @@ const removeTradeMark = async (id: number) => {
 }
 </script>
 
+<style scoped>
+.avatar-uploader .avatar {
+  width: 178px;
+  height: 178px;
+  display: block;
+}
+</style>
+
 <style>
 .avatar-uploader .el-upload {
   border: 1px dashed var(--el-border-color);
