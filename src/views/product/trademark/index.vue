@@ -43,7 +43,7 @@
             @confirm="removeTradeMark(row.id)"
           >
             <template #reference>
-              <el-button type="primary" size="small" icon="Delete"></el-button>
+              <el-button type="danger" size="small" icon="Delete"></el-button>
             </template>
           </el-popconfirm>
         </template>

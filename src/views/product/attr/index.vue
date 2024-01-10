@@ -53,11 +53,7 @@
               @confirm="deleteAttr(row.id)"
             >
               <template #reference>
-                <el-button
-                  type="primary"
-                  size="small"
-                  icon="Delete"
-                ></el-button>
+                <el-button type="danger" size="small" icon="Delete"></el-button>
               </template>
             </el-popconfirm>
           </template>
@@ -123,7 +119,7 @@
         <el-table-column label="属性值操作">
           <template #default="{ index }">
             <el-button
-              type="primary"
+              type="danger"
               size="small"
               icon="Delete"
               @click="attrParams.attrValueList.splice(index, 1)"
