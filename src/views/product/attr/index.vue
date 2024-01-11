@@ -82,12 +82,7 @@
       <el-button
         type="primary"
         size="default"
-        @click="
-          attrParams.attrValueList.splice(
-            attrParams.attrValueList.length - 1,
-            1,
-          )
-        "
+        @click="attrParams.attrValueList = []"
       >
         取消
       </el-button>
@@ -127,7 +122,20 @@
           </template>
         </el-table-column>
       </el-table>
-      <el-button type="primary" size="default" @click="save(attrParams)">
+      <el-button
+        type="primary"
+        size="default"
+        @click="save(attrParams)"
+        :disabled="
+          !(
+            attrParams.attrName.trim() != '' &&
+            attrParams.attrValueList.length > 0 &&
+            attrParams.attrValueList[
+              attrParams.attrValueList.length - 1
+            ].valueName.trim() != ''
+          )
+        "
+      >
         保存
       </el-button>
       <el-button type="primary" size="default" @click="scene = 0">
