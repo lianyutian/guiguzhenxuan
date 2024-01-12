@@ -1,6 +1,13 @@
 //SPU管理模块的接口
 import request from '@/utils/request'
-import type { HasSpuResponseData } from './type'
+import type {
+  AllTradeMark,
+  HasSaleAttrResponseData,
+  HasSpuResponseData,
+  SaleAttrResponseData,
+  SkuData,
+  SpuHasImg,
+} from './type'
 enum API {
   //获取已有的SPU的数据
   HASSPU_URL = '/admin/product/',
@@ -16,6 +23,8 @@ enum API {
   ADDSPU_URL = '/admin/product/saveSpuInfo',
   //更新已有的SPU
   UPDATESPU_URL = '/admin/product/updateSpuInfo',
+  //追加一个新增的SKU地址
+  ADDSKU_URL = '/admin/product/saveSkuInfo',
 }
 
 //获取某一个三级分类下已有的SPU数据
@@ -59,4 +68,9 @@ export const reqAddOrUpdateSpu = (data: any) => {
   } else {
     return request.post<any, any>(API.ADDSPU_URL, data)
   }
+}
+
+//添加SKU的请求方法
+export const reqAddSku = (data: SkuData) => {
+  request.post<any, any>(API.ADDSKU_URL, data)
 }
