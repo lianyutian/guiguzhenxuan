@@ -24,7 +24,6 @@ import { useRoute } from 'vue-router'
 let settingStore = useSettingStore()
 // 路由
 const route = useRoute()
-console.log(route.matched)
 const changeIcon = () => {
   console.log(settingStore.fold)
   settingStore.fold = !settingStore.fold
