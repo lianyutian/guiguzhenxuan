@@ -1,7 +1,7 @@
 <template>
   <el-card style="height: 80px">
     <el-form :inline="true" class="form">
-      <el-form-item label="用户名:">
+      <el-form-item label="用户名">
         <el-input placeholder="请你输入搜索用户名" v-model="keyword"></el-input>
       </el-form-item>
       <el-form-item>
@@ -289,7 +289,7 @@ const save = async () => {
   //保存按钮:添加新的用户|更新已有的用户账号信息
   let result: any = await reqAddOrUpdateUser(userParams)
   //添加或者更新成功
-  if (result.code == 200) {
+  if (result.code === 200) {
     //关闭抽屉
     drawer.value = false
     //提示消息
@@ -432,9 +432,14 @@ const confirmClick = async () => {
 //删除某一个用户
 const deleteUser = async (userId: number) => {
   let result: any = await reqRemoveUser(userId)
-  if (result.code == 200) {
+  if (result.code === 200) {
     ElMessage({ type: 'success', message: '删除成功' })
     getHasUser(userArr.value.length > 1 ? pageNo.value : pageNo.value - 1)
+  } else {
+    ElMessage({
+      type: 'error',
+      message: result.data,
+    })
   }
 }
 //table复选框勾选的时候会触发的事件
@@ -452,9 +457,15 @@ const deleteSelectUser = async () => {
   })
   //批量删除的请求
   let result: any = await reqSelectUser(idsList)
-  if (result.code == 200) {
+
+  if (result.code === 200) {
     ElMessage({ type: 'success', message: '删除成功' })
     getHasUser(userArr.value.length > 1 ? pageNo.value : pageNo.value - 1)
+  } else {
+    ElMessage({
+      type: 'error',
+      message: result.data,
+    })
   }
 }
 let dialogFormVisible = ref(false)
@@ -476,6 +487,7 @@ import useLayOutSettingStore from '@/store/modules/setting'
 //获取模板setting仓库
 let settingStore = useLayOutSettingStore()
 //重置按钮
+//借助 src\layout\main\index.vue 中监听刷新机制，销毁组件
 const reset = () => {
   settingStore.refresh = !settingStore.refresh
 }
