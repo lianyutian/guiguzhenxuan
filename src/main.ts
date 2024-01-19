@@ -16,6 +16,9 @@ import router from './router'
 // 导入pinia
 import pinia from './store'
 import './permisstion'
+//暗黑模式需要的样式
+import 'element-plus/theme-chalk/dark/css-vars.css'
+import { isHasButton } from './directive/has'
 
 // 获取应用实例对象
 const app = createApp(App)
@@ -28,5 +31,6 @@ app.use(gloablComponent)
 // 使用路由组件
 app.use(router)
 app.use(pinia)
+isHasButton(app)
 // 将应用挂载到挂载点上
 app.mount('#app')

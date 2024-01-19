@@ -57,7 +57,7 @@
             编辑
           </el-button>
           <el-popconfirm
-            :title="`你确定要删除${row.roleName}?`"
+            :title="`您确定要删除${row.roleName}?`"
             width="260px"
             @confirm="removeRole(row.id)"
           >
@@ -72,9 +72,9 @@
     </el-table>
   </el-card>
   <!-- 添加职位与更新已有职位的结构:对话框 -->
-  <el-dialog v-model="dialogVisite" title="添加职位">
+  <el-dialog v-model="dialogVisite" title="编辑角色">
     <el-form ref="roleForm" :rules="rules" :model="roleParams">
-      <el-form-item label="职位名称">
+      <el-form-item label="角色名称">
         <el-input
           placeholder="请你输入职位名称"
           v-model="roleParams.roleName"
@@ -82,9 +82,7 @@
       </el-form-item>
     </el-form>
     <template #footer>
-      <el-button type="primary" size="default" @click="dialogVisite = false">
-        取消
-      </el-button>
+      <el-button size="default" @click="dialogVisite = false">取消</el-button>
       <el-button type="primary" size="default" @click="save">确定</el-button>
     </template>
   </el-dialog>

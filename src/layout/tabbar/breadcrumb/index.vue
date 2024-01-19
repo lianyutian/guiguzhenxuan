@@ -29,5 +29,10 @@ const changeIcon = () => {
   settingStore.fold = !settingStore.fold
 }
 </script>
+<script lang="ts">
+export default {
+  name: 'Breadcrumb',
+}
+</script>
 
 <style lang="scss" scoped></style>

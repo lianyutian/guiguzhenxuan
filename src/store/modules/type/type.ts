@@ -6,6 +6,8 @@ export interface UserState {
   menuRoutes: RouteRecordRaw[]
   username: string
   avatar: string
+  //存储当前用户是否包含某一个按钮
+  buttons: string[]
 }
 
 //定义分类仓库state对象的ts类型

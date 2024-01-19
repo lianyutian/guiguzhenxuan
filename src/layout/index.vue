@@ -49,6 +49,11 @@ const userStore = useUserStore()
 const settingStore = useSettingStore()
 const route = useRoute()
 </script>
+<script lang="ts">
+export default {
+  name: 'Layout',
+}
+</script>
 
 <style lang="scss" scoped>
 .layout_container {
