@@ -20,15 +20,16 @@ import cloneDeep from 'lodash/cloneDeep'
 
 //用于过滤当前用户需要展示的异步路由
 function filterAsyncRoute(asnycRoute: any, routes: any) {
-  return asnycRoute.filter((item: any) => {
-    if (routes.includes(item.name)) {
-      if (item.children && item.children.length > 0) {
-        //硅谷333账号:product\trademark\attr\sku
-        item.children = filterAsyncRoute(item.children, routes)
-      }
-      return true
-    }
-  })
+  return asnycRoute
+  // return asnycRoute.filter((item: any) => {
+  //   if (routes.includes(item.name)) {
+  //     if (item.children && item.children.length > 0) {
+  //       //硅谷333账号:product\trademark\attr\sku
+  //       item.children = filterAsyncRoute(item.children, routes)
+  //     }
+  //     return true
+  //   }
+  // })
 }
 
 // 创建用户小仓库

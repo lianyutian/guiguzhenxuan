@@ -24,6 +24,7 @@ router.beforeEach(async (to: any, from: any, next: any) => {
   const token = userStore.token
   //获取用户名字
   const username = userStore.username
+
   //用户登录判断
   if (token) {
     //登陆成功，访问login。指向首页

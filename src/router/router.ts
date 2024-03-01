@@ -150,6 +150,28 @@ export const asnycRoute = [
       },
     ],
   },
+  {
+    path: '/course',
+    component: () => import('@/layout/index.vue'),
+    name: 'Course',
+    meta: {
+      hidden: false,
+      title: '课程管理',
+      icon: '',
+    },
+    redirect: '/course/course',
+    children: [
+      {
+        path: '/course/course',
+        component: () => import('@/views/course/course/index.vue'),
+        name: 'CourseManager',
+        meta: {
+          hidden: false,
+          title: '课程管理',
+        },
+      },
+    ],
+  },
 ]
 
 //任意路由

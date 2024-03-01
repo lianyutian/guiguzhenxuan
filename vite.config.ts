@@ -39,6 +39,13 @@ export default defineConfig(({ command, mode }) => {
     //代理跨域
     server: {
       proxy: {
+        '/api/learnhub': {
+          target: 'http://127.0.0.1:8080',
+          //需要代理跨域
+          changeOrigin: true,
+          //路径重写
+          rewrite: (path) => path.replace(/^\/api\/learnhub/, ''),
+        },
         [env.VITE_APP_BASE_API]: {
           //获取数据服务器地址的设置
           target: env.VITE_SERVE,
